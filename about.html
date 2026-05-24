@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Aanya Sharma</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Aanya Sharma</a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger-icon">☰</span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="page-header about-header">
+    <div class="page-header-blob" aria-hidden="true"></div>
+    <h1>About Aanya</h1>
+    <p class="page-subtitle">Designer. Researcher. Coffee-driven optimist.</p>
+  </header>
+
+  <!-- Stats strip -->
+  <section class="stats-strip" aria-label="Career highlights">
+    <div class="stats-strip-inner">
+      <div class="stat-item">
+        <span class="stat-number" data-target="5" data-suffix="+">0</span>
+        <span class="stat-label">years experience</span>
+      </div>
+      <span class="stat-divider" aria-hidden="true">·</span>
+      <div class="stat-item">
+        <span class="stat-number" data-target="30" data-suffix="+">0</span>
+        <span class="stat-label">shipped projects</span>
+      </div>
+      <span class="stat-divider" aria-hidden="true">·</span>
+      <div class="stat-item">
+        <span class="stat-number" data-target="12">0</span>
+        <span class="stat-label">awards</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column bio -->
+  <section class="about-bio section">
+    <div class="about-grid">
+      <div class="about-portrait-wrap">
+        <img src="https://placehold.co/400x400/4f46e5/ffffff?text=Aanya" alt="Portrait of Aanya Sharma" class="about-portrait" width="400" height="400">
+      </div>
+      <div class="about-text">
+        <p>I design products at the intersection of business goals and human emotion. My happiest projects are the ones where a measurable metric (conversion, retention, time-on-task) moves <em>and</em> users send unsolicited thank-you messages.</p>
+        <p>Before design, I trained as a psychology major — which still shows up in how I run research. I believe the best interviews feel like good conversations, not interrogations.</p>
+        <p>When I'm not in Figma, you'll find me sketching in cafés, running ultra-marathons very slowly, or trying (and failing) to keep my plants alive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career timeline -->
+  <section class="timeline-section section">
+    <div class="container">
+      <h2>Career Timeline</h2>
+      <ol class="timeline">
+
+        <li class="timeline-entry reveal" style="--reveal-delay: 50ms">
+          <span class="timeline-year">2024</span>
+          <div class="timeline-content">
+            <h3>Senior UX Designer, Razorpay</h3>
+            <p>Leading checkout redesign for 8M users.</p>
+          </div>
+        </li>
+
+        <li class="timeline-entry reveal" style="--reveal-delay: 150ms">
+          <span class="timeline-year">2022</span>
+          <div class="timeline-content">
+            <h3>UX Designer, Byju's</h3>
+            <p>Owned learner onboarding for the K-12 app.</p>
+          </div>
+        </li>
+
+        <li class="timeline-entry reveal" style="--reveal-delay: 250ms">
+          <span class="timeline-year">2021</span>
+          <div class="timeline-content">
+            <h3>Product Designer, Practo</h3>
+            <p>Designed doctor-patient chat MVP.</p>
+          </div>
+        </li>
+
+        <li class="timeline-entry reveal" style="--reveal-delay: 350ms">
+          <span class="timeline-year">2020</span>
+          <div class="timeline-content">
+            <h3>Design Intern, Zomato</h3>
+            <p>Reshaped restaurant onboarding flow.</p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-accent"></div>
+    <div class="footer-container">
+      <div class="footer-col">
+        <p class="footer-brand">Aanya Sharma</p>
+        <p class="footer-tagline">Designing calm products for noisy industries.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Social</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="LinkedIn">💼</a>
+          <a href="#" class="social-btn" aria-label="Dribbble">🎨</a>
+          <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+          <a href="mailto:hello@aanyasharma.com" class="social-btn" aria-label="Email">✉️</a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 Aanya Sharma — Built with curiosity and Cursor. <span class="heart-pulse" aria-hidden="true">♥</span></p>
+  </footer>
+
+</body>
+</html>

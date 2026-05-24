@@ -1,0 +1,126 @@
+/* Print + screen CSS for the combined training PDF/HTML */
+@page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+
+:root{
+  --ink:#0b0b14; --muted:#5b5b78; --bg:#ffffff;
+  --primary:#6d5efc; --primary-2:#b06dfc; --accent:#22d3ee;
+  --code-bg:#0f1020; --code-fg:#e6e6f3; --line:#e7e7ef;
+  --warn:#fef3c7; --warn-line:#f59e0b;
+  --good:#dcfce7; --good-line:#16a34a;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+  font:14px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+
+/* Headings (serif for impact) */
+h1,h2,h3,h4,h5,h6{
+  font-family:"Fraunces",Georgia,"Times New Roman",serif;
+  color:var(--ink); letter-spacing:-.01em; line-height:1.18;
+  margin:1.6em 0 .5em;
+}
+h1{
+  font-size:30px; font-weight:800;
+  background:linear-gradient(135deg,#0b0b14 0%,#6d5efc 60%,#22d3ee 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  border-bottom:2px solid var(--line); padding-bottom:.3em;
+  page-break-before:always;
+}
+h1:first-of-type{page-break-before:auto}
+.cover ~ * h1:first-of-type, .cover + h1, body > h1:first-of-type{page-break-before:auto}
+h2{font-size:24px; font-weight:700; color:var(--primary)}
+h3{font-size:18px; font-weight:700; color:#1f1f3a}
+h4{font-size:15px; font-weight:700; color:#1f1f3a; font-family:Inter,sans-serif}
+
+p,ul,ol,table,pre,blockquote{margin:.6em 0}
+ul,ol{padding-left:1.4em}
+li{margin:.18em 0}
+
+a{color:var(--primary); text-decoration:none; border-bottom:1px dashed rgba(109,94,252,.35)}
+
+/* Inline code */
+code{
+  font-family:"JetBrains Mono","SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  font-size:12.4px; background:#f1f1f8; color:#1f1f3a;
+  padding:1.5px 6px; border-radius:5px; border:1px solid var(--line);
+}
+
+/* Code blocks */
+div.sourceCode,pre{
+  background:var(--code-bg) !important;
+  color:var(--code-fg);
+  border-radius:10px; padding:14px 16px; overflow:auto;
+  font:12.4px/1.55 "JetBrains Mono","SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  page-break-inside:avoid;
+  border:1px solid #1c1d2e;
+}
+pre code{background:transparent; color:inherit; padding:0; border:0; font-size:inherit}
+
+/* Blockquote = callout */
+blockquote{
+  margin:.8em 0; padding:12px 16px; border-left:4px solid var(--primary);
+  background:linear-gradient(135deg,rgba(109,94,252,.06),rgba(34,211,238,.05));
+  border-radius:6px; color:#1f1f3a;
+}
+blockquote p{margin:.2em 0}
+
+/* Tables */
+table{width:100%; border-collapse:collapse; font-size:13px}
+th,td{padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left}
+th{background:#f7f7fb; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-size:11px}
+tr{page-break-inside:avoid}
+
+hr{border:0; border-top:1px solid var(--line); margin:1.8em 0}
+
+/* TOC tweaks (pandoc puts a div#TOC) */
+#TOC{
+  background:#f7f7fb; border:1px solid var(--line); border-radius:10px;
+  padding:14px 18px 14px 30px; margin:.6em 0 2em;
+  page-break-after:always;
+}
+#TOC ul{padding-left:1em; list-style:none}
+#TOC li{margin:2px 0; font-size:13px}
+#TOC > ul > li{font-weight:600; margin-top:6px}
+
+/* Cover */
+.cover{
+  page-break-after:always; text-align:left;
+  background:linear-gradient(135deg,#0b0b14 0%,#1a1a2f 60%,#3a1f78 100%);
+  color:#fff; height:259mm; box-sizing:border-box; border-radius:0;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  margin:-18mm -16mm 0; /* bleed to page edges */
+  padding:60px 30mm; /* inner padding accounts for bleed */
+}
+.cover .eyebrow{font:600 12px/1 Inter; letter-spacing:.32em; text-transform:uppercase; color:#22d3ee; margin-bottom:22px}
+.cover h1{
+  font-size:42px; font-weight:800; color:#ffffff;
+  background:none; -webkit-text-fill-color:#ffffff;
+  border:0; padding:0; margin:0 0 .25em;
+  page-break-before:auto;
+  line-height:1.1;
+}
+.cover h1 em, .cover h1 .accent{
+  font-style:normal;
+  color:#7dd3fc; /* simple solid cyan — avoids per-line gradient breakage */
+  background:none; -webkit-text-fill-color:#7dd3fc;
+}
+.cover h2{color:#cfd0e0; font-family:Inter,sans-serif; font-weight:500; font-size:18px; margin:0 0 24px; line-height:1.5}
+.cover .meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.cover .pill{font:600 11px Inter; letter-spacing:.08em; text-transform:uppercase; color:#22d3ee; background:rgba(34,211,238,.12); border:1px solid rgba(34,211,238,.3); padding:6px 12px; border-radius:999px}
+.cover .footer-meta{margin-top:24px; color:#9ca3b7; font-size:13px}
+
+/* Syntax highlighting overrides (pandoc skylighting tango-ish on dark) */
+.sourceCode .kw,.sourceCode .cf,.sourceCode .op{color:#b06dfc; font-weight:600}
+.sourceCode .dt,.sourceCode .bu{color:#22d3ee}
+.sourceCode .st,.sourceCode .sc,.sourceCode .ch{color:#a7f3d0}
+.sourceCode .co{color:#7a7a98; font-style:italic}
+.sourceCode .va,.sourceCode .fu{color:#fbcfe8}
+.sourceCode .dv,.sourceCode .fl,.sourceCode .cn{color:#fde68a}
+.sourceCode .er{color:#f87171; font-weight:700}
+.sourceCode a.sourceLine{color:inherit}
+.sourceCode { line-height:1.55 }
+
+/* Avoid awkward breaks */
+h1,h2,h3{page-break-after:avoid}
+img,figure{page-break-inside:avoid; max-width:100%}
